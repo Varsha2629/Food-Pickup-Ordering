@@ -44,8 +44,13 @@ app.use(express.static("public"));
 // app.use("/api/widgets", widgetsRoutes(db));
 
   const login = require("./routes/index");
+  const home = require("./routes/homepage")
+
   // login routes
   app.use("/", login(db));
+
+  // homepage
+  app.use("/", home(db));
   // Note: mount other resources here, using the same pattern above
 
 // Home page

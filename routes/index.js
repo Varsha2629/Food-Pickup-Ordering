@@ -9,17 +9,23 @@ router.get("/", (req, res) => {
   res.render("index");
 });
 
+//register
+router.get("/register", (req, res) => {
+  res.render("register");
+  console.log('you registered successfully');
+});
+
 //login
 router.get("/login", (req, res) => {
   console.log('loginnnnnnn');
-  res.render("index");
+  res.render("login");
 });
 // logout
-router.get("/", (req, res) => {
-  console.log('logout');
-  res.clearCookie('user');
-  res.redirect("/");
-});
+// router.get("/", (req, res) => {
+//   console.log('logout');
+//   res.clearCookie('');
+//   res.redirect("/index");
+// });
 
 // router.post("/login", (req, res) => {
 //     res.status(200)
@@ -27,11 +33,7 @@ router.get("/", (req, res) => {
 //     res.render("login");
 // });
 
-//register
-router.get("/register", (req, res) => {
-  res.render("index");
-  console.log('you registered successfully');
-});
+
 
 return router;
 }
