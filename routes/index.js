@@ -14,6 +14,12 @@ router.get("/login", (req, res) => {
   console.log('loginnnnnnn');
   res.render("index");
 });
+// logout
+router.get("/", (req, res) => {
+  console.log('logout');
+  res.clearCookie('user');
+  res.redirect("/");
+});
 
 // router.post("/login", (req, res) => {
 //     res.status(200)
