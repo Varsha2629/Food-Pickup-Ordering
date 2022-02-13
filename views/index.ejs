@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+  <%- include('partials/head'); %>
+<!--
   <title>Home Page</title>
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
@@ -11,10 +13,35 @@
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
+-->
 </head>
 
-<body>
-  <h1>Have fun! 🥔</h1>
-</body>
+<body class="container">
 
+  <header>
+    <%- include('partials/header'); %>
+  </header>
+
+  <main>
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="jumbotron">
+        <h1>Resturant Name</h1>
+        <p>Welcome to our food ordering service!</p>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="well">
+        <h7>View Your Order Here!</h7>
+      </div>
+    </div>
+  </div>
+  </main>
+
+  <footer>
+    <%- include('partials/footer'); %>
+  </footer>
+
+  </body>
 </html>
