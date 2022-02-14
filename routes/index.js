@@ -1,62 +1,78 @@
-const database = require('../server/database.js')
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
+const database = require('../server/database.js')
+const { generateRandomString, getUserByEmail } = require('../server/helpers');
+
 
 // import { getAllMenuItems } from('../server/database.js')
 
-module.exports = (db) => {
-// home
-router.get("/", (req, res) => {
-  // console.log('This is home');
-  res.render("index");
-});
+module.exports = (d) => {
+  // home
+  router.get("/", (req, res) => {
+    // console.log('This is home');
+    res.render("index");
+  });
 
-//register
-router.get("/register", (req, res) => {
-<<<<<<< HEAD
+  //register
+  router.get("/register", (req, res) => {
+    const templateVars = {
+      user: null
+    }
+    res.render("register", templateVars);
 
-  const templateVars = {
-    user: null
-  }
-  res.render("register", templateVars);
-=======
-  res.render("register");
-  // console.log('you registered successfully');
->>>>>>> f5c61645e5606aa39c7e00e6576c4cf88eacd5b5
-});
+  });
 
-//login
-router.get("/login", (req, res) => {
-<<<<<<< HEAD
+  router.post("/register", (req, res) => {
+    const userEmail = req.body.email;
+    const userPass = req.body.password;
+    const id = generateRandomString()
 
-=======
-  // console.log('loginnnnnnn');
->>>>>>> f5c61645e5606aa39c7e00e6576c4cf88eacd5b5
-  res.render("login");
-});
-// logout
-router.post("/logout", (req, res) => {
-  req.session = null;
-  res.redirect('/login')
-});
+    const user = {
+      id,
+      email: userEmail,
+      password: userPass
 
-// router.post("/login", (req, res) => {
-//     res.status(200)
-//     console.log('login post');
-//     res.render("login");
-// });
+    }
+    if (userEmail === '' || userPass === '') {
+      res.status(400).send('email and password can not be empty');
+      return
+    }
+    if (getUserByEmail(userEmail, user)) {
+      res.status(400).send('email already exits!')
+    }
+    console.log('you registered successfully');
 
-<<<<<<< HEAD
-=======
-router.get("/menu", (req, res) => {
-  const menuItems = database.getAllMenuItems()
-  const templateVars = {
-    itmes : database.getAllMenuItems()
-  }
-  res.render('menu', database.getAllMenuItems());
-  // console.log(database.getAllMenuItems())
-});
+    res.redirect("/login")
+  });
 
->>>>>>> f5c61645e5606aa39c7e00e6576c4cf88eacd5b5
-return router;
+
+  //login
+  router.get("/login", (req, res) => {
+    res.render("login");
+  });
+
+  router.post("/login", (req, res) => {
+    const userEmail = req.body.email;
+    const userPass = req.body.password;
+    const user = getUserByEmail(userEmail, database.users)
+
+    res.redirect("/");
+  });
+
+  // logout
+  router.post("/logout", (req, res) => {
+    // req.session = null;
+    res.redirect('/login')
+  });
+
+  router.get("/menu", (req, res) => {
+    const menuItems = database.getAllMenuItems()
+    const templateVars = {
+      itmes: database.getAllMenuItems()
+    }
+    res.render('menu', templateVars);
+    // console.log(database.getAllMenuItems())
+  });
+
+  return router;
 }

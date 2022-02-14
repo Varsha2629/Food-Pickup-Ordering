@@ -13,6 +13,11 @@
     <h3>Create Account</h3>
       <form class="justify-content-center" method="POST" action="/register">
         <div class="form-group mb-2">
+
+          <label for="name">Name</label>
+          <input class="form-control" type="text" name="name" placeholder="Enter name"
+            style="width: 300px; margin: 1em">
+
           <!-- textbox for email input -->
           <label for="email">Email address</label>
           <input class="form-control" type="email" name="email" placeholder="Enter email"
@@ -22,7 +27,7 @@
         <label for="password">Password:</label>
         <input class="form-control" type="password" name="password" placeholder="Password"
           style="width: 300px; margin: 1em">
-        <button type="submit" class="btn btn-success">Register</button>
+        <button type="submit" class="btn btn-dark">Register</button>
       </form>
 
   </main>
