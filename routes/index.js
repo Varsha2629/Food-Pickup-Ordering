@@ -1,23 +1,25 @@
+const database = require('../server/database.js')
 const express = require('express');
 const router  = express.Router();
 
+// import { getAllMenuItems } from('../server/database.js')
 
 module.exports = (db) => {
 // home
 router.get("/", (req, res) => {
-  console.log('This is home');
+  // console.log('This is home');
   res.render("index");
 });
 
 //register
 router.get("/register", (req, res) => {
   res.render("register");
-  console.log('you registered successfully');
+  // console.log('you registered successfully');
 });
 
 //login
 router.get("/login", (req, res) => {
-  console.log('loginnnnnnn');
+  // console.log('loginnnnnnn');
   res.render("login");
 });
 // logout
@@ -33,7 +35,12 @@ router.get("/login", (req, res) => {
 //     res.render("login");
 // });
 
-
+router.get("/menu", (req, res) => {
+  // getAllMenuItems()
+  // console.log(res.data);
+  res.render('menu');
+  console.log(database.getAllMenuItems())
+});
 
 return router;
 }
