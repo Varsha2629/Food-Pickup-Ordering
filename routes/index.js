@@ -35,14 +35,6 @@ router.get("/login", (req, res) => {
 //     res.render("login");
 // });
 
-router.get("/menu", (req, res) => {
-  const menuItems = database.getAllMenuItems()
-  const templateVars = {
-    itmes : database.getAllMenuItems()
-  }
-  res.render('menu');
-  console.log(database.getAllMenuItems())
-});
 
 return router;
 }

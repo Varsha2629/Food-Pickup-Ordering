@@ -8,9 +8,8 @@ const pool = new Pool({
 
 const getAllMenuItems = function() {
   return pool
-    .query(`SELECT * FROM menu_items;`, [])
+    .query(`SELECT * FROM menu;`, [])
     .then((result) => {
-      console.log(result.rows)
       return result.rows;
     })
     .catch((err) => {

@@ -1,12 +1,15 @@
 const express = require('express');
 const router  = express.Router();
-
+const database = require('../server/database.js')
 
 module.exports = (db) => {
 
-router.get("/menu", (req, res) => {
-  console.log('This is menu');
-  res.render("menu");
+router.get("/menu", async (req, res) => {
+  const templateVars = {
+    items : await database.getAllMenuItems()
+  }
+  res.render('menu', templateVars);
+  console.log(templateVars)
 });
 
 return router;
