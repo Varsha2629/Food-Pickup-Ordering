@@ -40,8 +40,8 @@ router.get("/menu", (req, res) => {
   const templateVars = {
     itmes : database.getAllMenuItems()
   }
-  res.render('menu');
-  console.log(database.getAllMenuItems())
+  res.render('menu', database.getAllMenuItems());
+  // console.log(database.getAllMenuItems())
 });
 
 return router;
