@@ -9,7 +9,7 @@ router.get("/menu", async (req, res) => {
     items : await database.getAllMenuItems()
   }
   res.render('menu', templateVars);
-  console.log(templateVars)
+  console.log('THESE ARE THR VARIABLES', templateVars)
 });
 
 return router;

@@ -18,3 +18,5 @@ const getAllMenuItems = function() {
 }
 
 exports.getAllMenuItems = getAllMenuItems;
+
+console.log(getAllMenuItems())
