@@ -3,14 +3,18 @@
 <head>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-  <title>Select your order from our menu below!</title>
+
+  <link rel="stylesheet" href="../styles/main.css" type="text/css" />
+
+  <title>Menu page</title>
 </head>
 <header>
   <%- include('partials/header'); %>
 </header>
 
-
-
 <body>
-
+  <h1 class='menu'>Select your order from our delicious menu!</h1>
+  <% for(let item in items) {  %>
+    <p><%= item%></p>
+  <% } %>
 </body>
