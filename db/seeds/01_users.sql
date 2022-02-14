@@ -1,4 +1,4 @@
-// users
+
 INSERT INTO users (email, password)
 VALUES ('test123@test.com', '1234'), ('var123@test.com', '123'), ('var123456@test.com', '123');
 

@@ -1,4 +1,5 @@
 const express = require('express');
+
 const router = express.Router();
 const bcrypt = require('bcrypt');
 
@@ -18,19 +19,18 @@ module.exports = (pool) => {
     res.redirect("/")
   });
 
-  router.get("/login/:id", (req, res) => {
-    const templateVars = {
-    //  set user to null
-      user: null
-    }
-    res.redirect("/:id", templateVars)
-  });
+  // router.get("/login/:id", (req, res) => {
+  //   const templateVars = {
+  //     //  set user to null
+  //     user: null
+  //   }
+  //   res.redirect("/:id", templateVars)
+  // });
 
 
   router.post("/login", (req, res) => {
 
   });
-
 
   return router;
 }
