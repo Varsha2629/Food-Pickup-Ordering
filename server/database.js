@@ -11,9 +11,10 @@ const getAllMenuItems = function (pool) {
 
 const addUser = function (pool, user) {
   return pool
-    .query(`INSERT INTO users`, [`${user.email}`, `${user.password}`])
+
+    .query(`SELECT * FROM menu;`, [])
+
     .then((result) => {
-      console.log(result.rows)
       return result.rows;
     })
     .catch((err) => {

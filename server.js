@@ -33,10 +33,16 @@ app.use(
 
 app.use(express.static("public"));
 
-  const login = require("./routes/index");
+  const login = require("./routes/index")
+  const homeRoutes = require("./routes/homepage")
+  const cart = require("./routes/carts")
+
 
   // login routes
   app.use("/", login(db));
+  app.use("/menu", homeRoutes(db));
+  app.use("/carts", cart(db));
+
 
   // Note: mount other resources here, using the same pattern above
 

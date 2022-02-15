@@ -3,13 +3,13 @@ const router  = express.Router();
 
 module.exports = (db) => {
 
-router.get("/menu", async (req, res) => {
+router.get("/", async (req, res) => {
   const templateVars = {
-    items : await database.getAllMenuItems()
+    items : await db.getAllMenuItems()
   }
   res.render('menu', templateVars);
-  console.log(templateVars)
 });
+
 
 return router;
 }
