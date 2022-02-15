@@ -35,13 +35,14 @@ app.use(express.static("public"));
 
   const login = require("./routes/index")
   const homeRoutes = require("./routes/homepage")
-  const cart = require("./routes/carts")
+  const checkout = require("./routes/checkoutOrdersList")
 
 
   // login routes
   app.use("/", login(db));
   app.use("/menu", homeRoutes(db));
-  app.use("/carts", cart(db));
+  app.use("/checkout", checkout(db));
+
 
 
   // Note: mount other resources here, using the same pattern above

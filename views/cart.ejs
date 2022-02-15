@@ -21,24 +21,15 @@
       <!--end shopping-cart-header -->
 
       <ul class="shopping-cart-items">
+      <% for(let item of items) {  %>
         <li class="clearfix">
-          <span class="item-name">Pop</span>
-          <span class="item-price">$1</span>
-          <span class="item-quantity">Quantity: 01</span>
+          <span class="item-name"><%= item.name%></span>
+          <span class="item-price"><%= item.price%></span>
+          <span class="item-quantity"><%= item.quantity%></span>
         </li>
-
-        <li class="clearfix">
-          <span class="item-name">Fries</span>
-          <span class="item-price">$3</span>
-          <span class="item-quantity">Quantity: 01</span>
-        </li>
-
-        <li class="clearfix">
-          <span class="item-name">Burger</span>
-          <span class="item-price">$5</span>
-          <span class="item-quantity">Quantity: 01</span>
-        </li>
+        <% } %>
       </ul>
+
 
       <form action="" method="">
         <button id="checkout" type="button" class="btn btn-outline-info">Checkout</button>

@@ -31,6 +31,48 @@
       <div class="well">
         <h7>View Your Order Here!</h7>
       </div>
+
+      <div class="container">
+        <div class="shopping-cart">
+
+          <ul class="shopping-cart-items">
+            <li class="clearfix">
+              <span class="item-name">Pop</span>
+              <span class="item-price">$1</span>
+              <span class="item-quantity">Quantity: 01</span>
+            </li>
+
+            <li class="clearfix">
+              <span class="item-name">Fries</span>
+              <span class="item-price"><%= item.price%></span>
+              <span class="item-quantity">Quantity: 01</span>
+            </li>
+
+            <li class="clearfix">
+              <span class="item-name">Burger</span>
+              <span class="item-price"></span>
+              <span class="item-quantity">Quantity: 01</span>
+            </li>
+          </ul>
+          <div class="checkout-total">
+            <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">3</span>
+            <div class="shopping-cart-total">
+              <span class="lighter-text">Total:</span>
+              <span class="main-color-text">$9</span>
+            </div>
+          </div>
+
+          <form action="" method="">
+            <button id="checkout" type="button" class="btn btn-outline-info">Checkout</button>
+          </form>
+
+
+        </div>
+        <!--end shopping-cart -->
+      </div>
+
+
+
     </div>
   </div>
   </main>
