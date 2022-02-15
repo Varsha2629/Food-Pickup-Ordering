@@ -41,13 +41,9 @@ app.use(express.static("public"));
   // login routes
   app.use("/", login(db));
   app.use("/menu", homeRoutes(db));
-  app.use("/checkout", checkout(db));
-
-
+  app.use("/order", checkout(db));
 
   // Note: mount other resources here, using the same pattern above
-
-
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });

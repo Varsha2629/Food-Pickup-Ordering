@@ -33,7 +33,7 @@ const getAllOrderItems = function (pool, id) {
     WHERE orders.id = ${id};`
   , [])
     .then((result) => {
-      console.log(result)
+      // console.log(result)
       return result.rows;
     })
     .catch((err) => {

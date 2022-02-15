@@ -19,6 +19,9 @@
       <p><%= item.name%></p>
       <p>Price: <%= item.price%>$</p>
       <img src=<%= item.photo_url%>>
+      <form class="form-inline" action="/add-to-cart" method="POST">
+        <button type="submit" class="btn addToCart" style="background-color: blue; color: white">Add to cart!</button>
+      </form>
     </div>
   <% } %>
 </body>
