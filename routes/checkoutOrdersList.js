@@ -4,14 +4,14 @@ const database = require('../server/database.js')
 
 module.exports = (db) => {
 
-router.get("/", async (req, res) => {
+router.get("/:id", async (req, res) => {
+
   const templateVars = {
-    items : await database.getAllMenuItems(db)
+    items : await database.getAllOrderItems(db, req.params.id)
   }
-  res.render("menu", templateVars);
+  res.render("cart", templateVars);
 
 });
-
 
 return router;
 }
