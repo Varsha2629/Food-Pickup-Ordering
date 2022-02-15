@@ -1,15 +1,8 @@
-const { Pool } = require('pg')
-const pool = new Pool({
-  user: 'youssefragab',
-  password: '123',
-  host: 'localhost',
-  database: 'food_pickup_app'
-});
-
-const getAllMenuItems = function() {
+const getAllMenuItems = function (pool) {
   return pool
     .query(`SELECT * FROM menu;`, [])
     .then((result) => {
+      console.log(result)
       return result.rows;
     })
     .catch((err) => {
@@ -17,4 +10,24 @@ const getAllMenuItems = function() {
     });
 }
 
-exports.getAllMenuItems = getAllMenuItems;
+// const getAllOrderItems = function (pool, id) {
+//   return pool
+//     .query(`SELECT * from order_items
+//     JOIN orders on order_id = orders.id
+//     JOIN menu on menu.id = menu_id
+//     WHERE orders.id = ${id};`
+//   , [])
+//     .then((result) => {
+//       console.log(result)
+//       return result.rows;
+//     })
+//     .catch((err) => {
+//       console.log(err.message);
+//     });
+// }
+
+const getCheckoutCart = function() {
+
+}
+
+module.exports = { getAllMenuItems, addUser, getAllOrderItems }

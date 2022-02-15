@@ -1,40 +1,20 @@
-const database = require('../server/database.js')
 const express = require('express');
-const router  = express.Router();
-
-// import { getAllMenuItems } from('../server/database.js')
+const router = express.Router();
 
 module.exports = (db) => {
-// home
-router.get("/", (req, res) => {
-  // console.log('This is home');
-  res.render("index");
-});
+  // home
+  router.get("/", (req, res) => {
+    res.render("index");
+  });
+  //login
+  router.get("/login", (req, res) => {
+    // console.log('loginnnnnnn');
+    res.render("login");
+  });
 
-//register
-router.get("/register", (req, res) => {
-  res.render("register");
-  // console.log('you registered successfully');
-});
+  router.post("/login", (req, res) => {
 
-//login
-router.get("/login", (req, res) => {
-  // console.log('loginnnnnnn');
-  res.render("login");
-});
-// logout
-// router.get("/", (req, res) => {
-//   console.log('logout');
-//   res.clearCookie('');
-//   res.redirect("/index");
-// });
-
-// router.post("/login", (req, res) => {
-//     res.status(200)
-//     console.log('login post');
-//     res.render("login");
-// });
-
-
-return router;
-}
+    res.redirect("/");
+  });
+  return router;
+};

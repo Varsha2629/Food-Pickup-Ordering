@@ -3,7 +3,6 @@
 
 <head>
   <%- include('partials/head'); %>
-<!--
   <title>Home Page</title>
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
@@ -13,15 +12,12 @@
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
--->
 </head>
 
 <body class="container">
-
-  <header>
+<header>
     <%- include('partials/header'); %>
   </header>
-
   <main>
   <div class="row">
     <div class="col-sm-8">
@@ -35,13 +31,52 @@
       <div class="well">
         <h7>View Your Order Here!</h7>
       </div>
+
+      <div class="container">
+        <div class="shopping-cart">
+
+          <ul class="shopping-cart-items">
+            <li class="clearfix">
+              <span class="item-name">Pop</span>
+              <span class="item-price">$1</span>
+              <span class="item-quantity">Quantity: 01</span>
+            </li>
+
+            <li class="clearfix">
+              <span class="item-name">Fries</span>
+              <span class="item-price"></span>
+              <span class="item-quantity">Quantity: 01</span>
+            </li>
+
+            <li class="clearfix">
+              <span class="item-name">Burger</span>
+              <span class="item-price"></span>
+              <span class="item-quantity">Quantity: 01</span>
+            </li>
+          </ul>
+          <div class="checkout-total">
+            <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">3</span>
+            <div class="shopping-cart-total">
+              <span class="lighter-text">Total:</span>
+              <span class="main-color-text">$9</span>
+            </div>
+          </div>
+
+          <form action="" method="">
+            <button id="checkout" type="button" class="btn btn-outline-info">Checkout</button>
+          </form>
+
+
+        </div>
+        <!--end shopping-cart -->
+      </div>
+
+
+
     </div>
   </div>
   </main>
 
-  <footer>
-    <%- include('partials/footer'); %>
-  </footer>
-
+     <%- include('partials/footer'); %>
   </body>
 </html>
