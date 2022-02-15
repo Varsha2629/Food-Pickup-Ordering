@@ -4,9 +4,19 @@ const database = require('../server/database.js')
 
 module.exports = (db) => {
 router.get("/", async (req, res) => {
-  // const templateVars;
-  res.render('cart');
-});
+  console.log('non')
+  const { orderId } = req.session
+  console.log('req.session:', req.session)
+  console.log('orderId:', orderId)
+  if (!orderId) {
+    const orderItems = {}
+  } else {
+    const templateVars = {
+    orderItems : await database.getOrderItems(orderId, db)
+  }
+  res.render('cart')
+  }
+})
 
 router.post("/addItem/:itemId", async (req, res) => {
   const { orderId } = req.session
@@ -14,20 +24,19 @@ router.post("/addItem/:itemId", async (req, res) => {
     const newOrder = await database.createOrderId(db)
     const { itemId } = req.params
     const response = await database.addToCart(newOrder.id ,itemId, db)
-    req.session.oderId = newOrder.id
+    req.session.orderId = newOrder.id
     // res.send({response})
-    res.redirect('/cart')
-
+    console.log('abc')
+    return res.redirect('/cart')
+    console.log('def')
   } else {
     const { itemId } = req.params
     const response = await database.addToCart(orderId ,itemId, db)
     // res.send({response})
+    console.log('xyz')
     res.redirect('/cart')
+    console.log('123')
   }
-  
-  // const { itemId } = req.params
-  // const response = await database.addToCart(orderId ,itemId, db)
-  // res.send({response})
 });
 
 return router;

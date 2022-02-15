@@ -2,54 +2,66 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>shopping-cart</title>
+  <%- include('partials/head'); %>
+    <link rel="stylesheet" href="/styles/cart.css" type="text/css" />
+    <title>shopping-cart</title>
 </head>
 
 <body>
   <div class="container">
-    <div class="shopping-cart">
+    <div class="box card-panel z-depth-3">
+      <div class="invoice">
+        <table class="highlight">
+          <h2>YOUR ORDER:</h2>
+          <thead>
+            <tr class="order-title">
+              <th class="item item-quantity">QTY</th>
+              <th class="item item-name">ITEM</th>
+              <th class="item item-price">PRICE</th>
+              <th class="item item-remove">REMOVE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(let item of OrderItems) { %>
+              <tr>
+                <td>
+                  <%= item.name%>
+                </td>
+                <td class="right-align">
+                  $<%= item.price%>
+                </td>
+                <td class="right-align">
+                  Remove
+                </td>
+              </tr>
+              <% } %>
 
-      <h4>Cart
-        <span class="price" style="color:black">
-          <i class="fa fa-shopping-cart"></i>
-          <b>3</b>
-        </span>
-      </h4>
+                <div class="total-amount">
+                  <td></td>
+                  <td class="right-align bold">Total</td>
+                  <td class="right-align bold">$6.75</td>
+                </div>
+          </tbody>
+        </table>
 
-      <!--end shopping-cart-header -->
-
-      <div class="shopping-cart-items">
-      <% for(let item of items) {  %>
-        <div class="clearfix">
-          <span class="item-name"><%= item.name%></span>
-          <span class="item-price"><%= item.price%></span>
-          <span class="item-quantity"><%= item.quantity%></span>
+        <div id="checkout" class="button checkout row">
+          <button type="button" class="btn">Checkout</button>
         </div>
-        <% } %>
       </div>
 
-      <div class="shopping-cart-header">
-        <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">3</span>
-        <div class="shopping-cart-total">
-          <span class="lighter-text">Total:</span>
-          <span class="main-color-text">$9</span>
-        </div>
-      </div>
-      <form action="" method="">
-        <button id="checkout" type="button" class="btn btn-outline-info">Checkout</button>
-      </form>
 
 
     </div>
-    <!--end shopping-cart -->
+
   </div>
 
-
-</div>
   <!--end container -->
+
+
+  <!-- script -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 </body>
 
 </html>

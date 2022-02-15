@@ -12,7 +12,7 @@ const getAllMenuItems = function (pool) {
 
 const createOrderId = function(pool) {
   return pool
-    .query(`INSERT INTO orders DEFAULT VALUES RETURNING *;`)
+    .query(`INSERT INTO orders DEFAULT VALUES RETURNING orders.id;`)
     .then((result) => {
       console.log(result.rows)
       return result.rows[0];
@@ -34,5 +34,22 @@ const addToCart = function(orderId ,itemId, pool) {
     });
 }
 
+const getOrderItems = function(orderId, pool) {
+  return pool
+    .query(
+      `SELECT menu.name, menu.photo_url, menu.price 
+      FROM menu
+      JOIN order_items ON menu.id = order_items.menu_id
+      WHERE order_id = $1;
+      `, [ orderId])
+    .then((result) => {
+      console.log(result.rows)
+      return result.rows[0];
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+}
 
-module.exports = { getAllMenuItems, createOrderId, addToCart }
+
+module.exports = { getAllMenuItems, createOrderId, addToCart, getOrderItems }
