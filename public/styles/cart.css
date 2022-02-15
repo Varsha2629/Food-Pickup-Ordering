@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+}
+.box {
+  display: flex;
+  flex-direction: column;
+}
+
+th {
+  position: relative;
+}
+
+.card-panel {
+  padding-bottom: 0px;
+  align-items: center;
+}
+table.highlight {
+  margin-top: 30px;
+}
+
+thead {
+  border-bottom: 1px solid;
+}
+
+.invoice {
+  width: 80%;
+  white-space: break-spaces;
+  padding: 28px;
+  box-shadow: 0 16px 28px 0 rgba(134, 131, 134, 0.65), 0 25px 55px 0 rgba(146, 140, 142, 0.32);
+}
+
+#checkout{
+  background-color: #b86390;
+  float: right;
+}
+

@@ -3,8 +3,8 @@
 
 <head>
   <%- include('partials/head'); %>
-  <link rel="stylesheet" href="/styles/cart.css" type="text/css" />
-  <title>shopping-cart</title>
+    <link rel="stylesheet" href="/styles/cart.css" type="text/css" />
+    <title>shopping-cart</title>
 </head>
 
 <body>
@@ -14,34 +14,42 @@
         <table class="highlight">
           <h2>YOUR ORDER:</h2>
           <thead>
-            <tr>
-              <th class="item-quantity">QTY</th>
-              <th  class="item-name">ITEM</th>
-              <th class="item-price">PRICE</th>
+            <tr class="order-title">
+              <th class="item item-quantity">QTY</th>
+              <th class="item item-name">ITEM</th>
+              <th class="item item-price">PRICE</th>
+              <th class="item item-remove">REMOVE</th>
             </tr>
           </thead>
           <tbody>
-            <% for(let item of items) {  %>
-            <tr>
-              <td><%= item.quantity%></td>
-              <td><%= item.name%></td>
-              <td class="right-align"><%= item.price%></td>
-            </tr>
-            <% } %>
+            <% for(let item of items) { %>
+              <tr>
+                <td>
+                  <%= item.quantity%>
+                </td>
+                <td>
+                  <%= item.name%>
+                </td>
+                <td class="right-align">
+                  $<%= item.price%>
+                </td>
+                <td class="right-align">
+                  Remove
+                </td>
+              </tr>
+              <% } %>
 
-            <tr class="total-amount">
-              <td></td>
-              <td class="right-align bold">Total</td>
-              <td class="right-align bold">$6.75</td>
-
-            </tr>
-
+                <div class="total-amount">
+                  <td></td>
+                  <td class="right-align bold">Total</td>
+                  <td class="right-align bold">$6.75</td>
+                </div>
           </tbody>
-          <div class="button checkout row">
-            <button id="checkout" type="button" class="btn btn-outline-info">Checkout</button>
-          </div>
-
         </table>
+
+        <div id="checkout" class="button checkout row">
+          <button type="button" class="btn">Checkout</button>
+        </div>
       </div>
 
 
@@ -53,9 +61,10 @@
   <!--end container -->
 
 
-<!-- script -->
+  <!-- script -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 </body>
 
 </html>
