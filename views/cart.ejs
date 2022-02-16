@@ -13,35 +13,14 @@
       <div class="invoice">
         <table class="highlight">
           <h2>YOUR ORDER:</h2>
-          <thead>
-            <tr class="order-title">
-              <th class="item item-quantity">QTY</th>
-              <th class="item item-name">ITEM</th>
-              <th class="item item-price">PRICE</th>
-              <th class="item item-remove">REMOVE</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% for(let item of OrderItems) { %>
-              <tr>
-                <td>
-                  <%= item.name%>
-                </td>
-                <td class="right-align">
-                  $<%= item.price%>
-                </td>
-                <td class="right-align">
-                  Remove
-                </td>
-              </tr>
-              <% } %>
+          
+          <% for (item of orderItems) { %>
+            <p> QUANTITY: <%= item.quantity %> </p>
+            <p> NAME: <%= item.name %> </p>
+            <p> PRICE: <%= item.price %> </p>
+            <img class = 'menu-picture' src="<%= item.photo_url%>">
+          <% } %>
 
-                <div class="total-amount">
-                  <td></td>
-                  <td class="right-align bold">Total</td>
-                  <td class="right-align bold">$6.75</td>
-                </div>
-          </tbody>
         </table>
 
         <div id="checkout" class="button checkout row">
