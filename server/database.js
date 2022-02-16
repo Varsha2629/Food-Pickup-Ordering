@@ -22,29 +22,29 @@ const createOrderId = function(pool) {
     });
 }
 
-const addToCart = function(pool, orderId ,itemId) {
+const addToCart = function(orderId ,itemId, pool) {
   return pool
     .query(`INSERT INTO order_items (menu_id, order_id) VALUES ($1, $2) RETURNING *;`, [itemId, orderId])
     .then((result) => {
       console.log(result.rows)
-      return result.rows[0];
+      return result.rows;
     })
     .catch((err) => {
       console.log(err.message);
     });
 }
 
-const getOrderItems = function(pool, orderId) {
+const getOrderItems = function(orderId, pool) {
   return pool
     .query(
-      `SELECT menu.name, menu.photo_url, menu.price 
+      `SELECT count(menu.id) as quantity, menu.name, menu.photo_url, menu.price
       FROM menu
       JOIN order_items ON menu.id = order_items.menu_id
-      WHERE order_id = $1;
+      WHERE order_id = $1
+      GROUP BY menu.id;
       `, [ orderId])
     .then((result) => {
-      console.log(result.rows)
-      return result.rows[0];
+      return result.rows;
     })
     .catch((err) => {
       console.log(err.message);

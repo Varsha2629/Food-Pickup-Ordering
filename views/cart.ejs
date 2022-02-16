@@ -11,70 +11,79 @@
   <header>
     <%- include('partials/header'); %>
   </header>
- 
+
 
   <div class="wrap cf">
-  
+
     <div class="heading cf">
       <h1>My Order</h1>
       <a href="#" class="continue">Continue Order</a>
     </div>
     <div class="cart">
-  
-      <ul class="cartWrap">
-        <li class="items odd">
-          
-      <div class="infoWrap"> 
-          <div class="cartSection">               
-            <h3>Item Name 1</h3>                    
-          </div>  
-         
-            <div class="counter">
-              <div class="cnt increase">+</div>
-              <div class="count">2</div>
-              <div class="cnt decrease">-</div>
-            </div>   
-           
-          <div class="prodTotal cartSection">
-            <p>$15.00</p>
-          </div>
-          <div class="cartSection removeWrap">
-             <a href="#" class="remove">x</a>
-          </div>
-        </div>
-        </li>
-        <li class="items even">
-          
-         <div class="infoWrap"> 
-          <div class="cartSection">           
-          <h3>Item Name 1</h3>    
-          </div>  
 
-          <div class="counter">
-            <div class="cnt increase">+</div>
-            <div class="count">2</div>
-            <div class="cnt decrease">-</div>
-            </div>      
-          
-          <div class="prodTotal cartSection">
-            <p>$15.00</p>
-          </div>
+      <ul class="cartWrap">
+
+        <% for (item of orderItems) { %>
+          <li class="items odd">
+
+            <div class="infoWrap">
+              <div class="cartSection">
+                <h3>
+                  <%= item.name %>
+                </h3>
+              </div>
+              <div class="counter">
+                <div class="cnt increase">+</div>
+                <div class="count">
+                  <%= item.quantity %>
+                </div>
+                <div class="cnt decrease">-</div>
+              </div>
+              <div class="prodTotal cartSection">
+                <p>
+                  <%= item.price %>
+                </p>
+              </div>
+              <div class="cartSection removeWrap">
+                <a href="#" class="remove">x</a>
+              </div>
+            </div>
+          </li>
+
+          <% } %>
+
+            <li class="items even">
+
+              <div class="infoWrap">
+                <div class="cartSection">
+                  <h3>Item Name 1</h3>
+                </div>
+
+                <div class="counter">
+                  <div class="cnt increase">+</div>
+                  <div class="count">2</div>
+                  <div class="cnt decrease">-</div>
+                </div>
+
+                <div class="prodTotal cartSection">
+                  <p>$15.00</p>
+                </div>
                 <div class="cartSection removeWrap">
-             <a href="#" class="remove">x</a>
-          </div>
-        </div>
-        </li>    
- 
+                  <a href="#" class="remove">x</a>
+                </div>
+              </div>
+            </li>
+
       </ul>
     </div>
-       
+
     <div class="subtotal cf">
       <ul>
-        
-            <li class="totalRow"><span class="label">delivery</span><span class="value">free</span></li>
-        
-             
-              <li class="totalRow final"><span class="label">Total</span><span class="value">$20.00</span></li>
+
+        <li class="totalRow"><span class="label">delivery</span><span class="value">free</span></li>
+
+
+        <li class="totalRow final"><span class="label">Total</span><span class="value">$20.00</span></li>
         <li class="totalRow"><a href="#" class="btn continue">Checkout</a></li>
       </ul>
     </div>
@@ -84,30 +93,30 @@
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script type="text/javascript"
     src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <script>
-      // Remove Items From Cart
-        $('a.remove').click(function(){
-          event.preventDefault();
-          $( this ).parent().parent().parent().hide( 400 );
-        
-        })
- // increase and decrease
-      let num = 1;
-      $('.increase').click(function(){
-        const collection = document.getElementsByClassName('count');
-        num = num + 1;
-        collection[0].innerHTML = num;
+  <script>
+    // Remove Items From Cart
+    $('a.remove').click(function () {
+      event.preventDefault();
+      $(this).parent().parent().parent().hide(400);
 
-      })
-      $('.decrease').click(function(){
-        const collection = document.getElementsByClassName('count');
-        num = num - 1;
-        collection[0].innerHTML = num;
-      })
-      
-    </script>
+    })
+    // increase and decrease
+    let num = 1;
+    $('.increase').click(function () {
+      const collection = document.getElementsByClassName('count');
+      num = num + 1;
+      collection[0].innerHTML = num;
+
+    })
+    $('.decrease').click(function () {
+      const collection = document.getElementsByClassName('count');
+      num = num - 1;
+      collection[0].innerHTML = num;
+    })
+
+  </script>
 </body>
 
 </html>
