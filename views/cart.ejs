@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>shopping-cart</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="shopping-cart">
+
+      <h4>Cart
+        <span class="price" style="color:black">
+          <i class="fa fa-shopping-cart"></i>
+          <b>3</b>
+        </span>
+      </h4>
+
+      <!--end shopping-cart-header -->
+
+      <div class="shopping-cart-items">
+      <% for(let item of items) {  %>
+        <div class="clearfix">
+          <span class="item-name"><%= item.name%></span>
+          <span class="item-price"><%= item.price%></span>
+          <span class="item-quantity"><%= item.quantity%></span>
+        </div>
+        <% } %>
+      </div>
+
+      <div class="shopping-cart-header">
+        <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">3</span>
+        <div class="shopping-cart-total">
+          <span class="lighter-text">Total:</span>
+          <span class="main-color-text">$9</span>
+        </div>
+      </div>
+      <form action="" method="">
+        <button id="checkout" type="button" class="btn btn-outline-info">Checkout</button>
+      </form>
+
+
+    </div>
+    <!--end shopping-cart -->
+  </div>
+
+
+</div>
+  <!--end container -->
+</body>
+
+</html>
