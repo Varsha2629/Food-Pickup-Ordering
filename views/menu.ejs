@@ -14,12 +14,12 @@
 
 <body>
   <h1 class='menu'>Select your order from our delicious menu!</h1>
-  <% for(let item of items) {  %>
-    <div class='menu-item'>
+  <% for(let item of orderItems) {  %>
+    <div class="menu-item">
       <p><%= item.name%></p>
       <p>Price: <%= item.price%>$</p>
-      <img src=<%= item.photo_url%>>
-      <form class="form-inline" action="/add-to-cart" method="POST">
+      <img class = 'menu-picture' src="<%= item.photo_url%>">
+      <form class="form-inline" action="/cart/addItem/<%= item.id %>" method="POST">
         <button type="submit" class="btn addToCart" style="background-color: blue; color: white">Add to cart!</button>
       </form>
     </div>

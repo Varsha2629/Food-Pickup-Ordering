@@ -6,10 +6,10 @@ module.exports = (db) => {
 
 router.get("/", async (req, res) => {
   const templateVars = {
-    items : await database.getAllMenuItems(db)
+    orderItems : await database.getAllMenuItems(db)
   }
-  res.render("menu", templateVars);
-
+  console.log(templateVars)
+  res.render('menu', templateVars);
 });
 
 
