@@ -4,7 +4,9 @@
 <head>
   <%- include('partials/head'); %>
   <title>Home Page</title>
+</head>
 
+  <!--Files-->
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
@@ -12,13 +14,12 @@
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
-</head>
 
 <body class="container">
+
 <header>
     <%- include('partials/header'); %>
-  </header>
-<<<<<<< HEAD
+</header>
 
 
   <main class="container-fluid cover">
@@ -27,71 +28,19 @@
         <div class="col col-sm-7 text-center text-xl-left col-xl-4 offset-xl-2">
             <h1 class="mb-4"> Welcome to the Chill Grill! Order online now and skip the line!</h1>
             <p class="mb-5 subtitle-mb">Food, drinks and more available for in resturant pick-up order. </p>
-            <div class="input-group mb-3 shadow">
-                    <button class="btn bg-orange text-light text-uppercase p-3" type="button">View Menu</button>
+            <div class="input-group mb-3 ">
+                    <button class="btn bg-orange text-light text-uppercase p-3" type="button" href="/menu" >View Menu</button>
             </div>
         </div>
-=======
-  <main>
-  <div class="row">
-    <div class="col-sm-8">
-      <div class="jumbotron">
-        <h1>Resturant Name</h1>
-        <p>Welcome to our food ordering service!</p>
-      </div>
-    </div>
-
-    <div class="col-sm-4">
-      <div class="well">
-        <h7>View Your Order Here!</h7>
-      </div>
-
-      <div class="container">
-        <div class="shopping-cart">
-
-          <ul class="shopping-cart-items">
-            <li class="clearfix">
-              <span class="item-name">Pop</span>
-              <span class="item-price">$1</span>
-              <span class="item-quantity">Quantity: 01</span>
-            </li>
-
-            <li class="clearfix">
-              <span class="item-name">Fries</span>
-              <span class="item-price"></span>
-              <span class="item-quantity">Quantity: 01</span>
-            </li>
-
-            <li class="clearfix">
-              <span class="item-name">Burger</span>
-              <span class="item-price"></span>
-              <span class="item-quantity">Quantity: 01</span>
-            </li>
-          </ul>
-          <div class="checkout-total">
-            <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">3</span>
-            <div class="shopping-cart-total">
-              <span class="lighter-text">Total:</span>
-              <span class="main-color-text">$9</span>
-            </div>
-          </div>
-
-          <form action="" method="">
-            <button id="checkout" type="button" class="btn btn-outline-info">Checkout</button>
-          </form>
-
-
-        </div>
-        <!--end shopping-cart -->
-      </div>
-
-
->>>>>>> master
 
     </div>
 
   </main>
 
+  <footer>
      <%- include('partials/footer'); %>
+  </footer>
+
   </body>
+
 </html>

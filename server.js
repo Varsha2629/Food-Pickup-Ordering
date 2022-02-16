@@ -44,6 +44,11 @@ app.use(express.static("public"));
   app.use("/checkout", checkout(db));
 
 
+//////////////////////homepage/////////////////////////////
+  app.get("/", (req, res) => {
+    res.render("index");
+  });
+
 
   // Note: mount other resources here, using the same pattern above
 
