@@ -11,9 +11,9 @@ module.exports = (db) => {
       const orderItems = {}
     } else {
       const templateVars = {
-        orderItems: await database.getOrderItems(orderId, db)
+        orderItems: await database.getOrderItems(db, orderId)
       }
-      console.log(await database.getOrderItems(orderId, db))
+      console.log(await database.getOrderItems(db, orderId))
       res.render('cart', templateVars)
     }
   })
@@ -23,13 +23,13 @@ module.exports = (db) => {
     if (!orderId) {
       const newOrder = await database.createOrderId(db)
       const { itemId } = req.params
-      const response = await database.addToCart(newOrder.id, itemId, db)
+      const response = await database.addToCart(db, newOrder.id, itemId)
       req.session.orderId = newOrder.id
       // res.send({response})
       res.redirect('/cart')
     } else {
       const { itemId } = req.params
-      const response = await database.addToCart(orderId, itemId, db)
+      const response = await database.addToCart(db, orderId, itemId)
       // res.send({response})
       res.redirect('/cart')
     }
