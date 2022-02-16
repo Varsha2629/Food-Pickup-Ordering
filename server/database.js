@@ -51,5 +51,19 @@ const getOrderItems = function(orderId, pool) {
     });
 }
 
+const removeAllFromCart = function(itemId, orderId, pool) {
+  return pool
+    .query(`
+      DELETE FROM order_items
+      WHERE menu_id = $1 AND order_id = $2;
+      `, [itemId, orderId])
+    .then((result) => {
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+}
+
 
 module.exports = { getAllMenuItems, createOrderId, addToCart, getOrderItems }
