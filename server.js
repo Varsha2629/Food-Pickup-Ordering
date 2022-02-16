@@ -7,6 +7,7 @@ const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
+const cookieSession = require('cookie-session')
 
 // PG database client/connection setup
 const { Pool } = require("pg");
@@ -21,6 +22,13 @@ app.use(morgan("dev"));
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieSession({
+  name: 'session',
+  keys: ['string1', 'string2'],
+
+  // Cookie Options
+  maxAge: 10 * 60 * 1000 // 24 hours
+}))
 
 app.use(
   "/styles",
@@ -35,13 +43,21 @@ app.use(express.static("public"));
 
   const login = require("./routes/index")
   const homeRoutes = require("./routes/homepage")
+<<<<<<< HEAD
   const checkout = require("./routes/checkoutOrdersList")
+=======
+  const cart = require("./routes/cart")
+>>>>>>> 4dd5b7987682525186ab43cca3628de414d2960d
 
 
   // login routes
   app.use("/", login(db));
   app.use("/menu", homeRoutes(db));
+<<<<<<< HEAD
   app.use("/checkout", checkout(db));
+=======
+  app.use("/cart", cart(db));
+>>>>>>> 4dd5b7987682525186ab43cca3628de414d2960d
 
 
 

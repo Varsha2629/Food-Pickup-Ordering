@@ -5,6 +5,7 @@ DROP TABLE IF EXISTS menu CASCADE;
 DROP TABLE IF EXISTS orders CASCADE;
 DROP TABLE IF EXISTS order_items CASCADE;
 
+<<<<<<< HEAD
 CREATE TABLE users (
   id SERIAL PRIMARY KEY NOT NULL,
   name VARCHAR(255) NOT NULL,
@@ -13,6 +14,8 @@ CREATE TABLE users (
   balance INTEGER
 );
 
+=======
+>>>>>>> 4dd5b7987682525186ab43cca3628de414d2960d
 CREATE TABLE menu (
   id SERIAL PRIMARY KEY NOT NULL,
   name VARCHAR(255) NOT NULL,
@@ -21,6 +24,7 @@ CREATE TABLE menu (
 );
 
 CREATE TABLE orders (
+<<<<<<< HEAD
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   order_placed BOOLEAN,
@@ -32,4 +36,15 @@ CREATE TABLE order_items (
   order_id INTEGER REFERENCES orders(id) ON DELETE CASCADE,
   menu_id INTEGER REFERENCES menu(id) ON DELETE CASCADE,
   quantity INTEGER
+=======
+  id SERIAL PRIMARY KEY NOT NULL,
+  order_placed BOOLEAN DEFAULT false,
+  order_ready BOOLEAN DEFAULT false
+);
+
+CREATE TABLE order_items (
+  id SERIAL PRIMARY KEY NOT NULL,
+  order_id INTEGER REFERENCES orders(id) ON DELETE CASCADE,
+  menu_id INTEGER REFERENCES menu(id) ON DELETE CASCADE
+>>>>>>> 4dd5b7987682525186ab43cca3628de414d2960d
 )
