@@ -22,72 +22,69 @@
     <div class="cart">
 
       <ul class="cartWrap">
-
-        <% for (item of orderItems) { %>
-          <li class="items odd">
-
-            <div class="infoWrap">
-              <div class="cartSection">
-                <h3>
-                  <%= item.name %>
-                </h3>
-              </div>
-              <div class="counter">
-                <div class="cnt increase">+</div>
-                <div class="count">
-                  <%= item.quantity %>
-                </div>
-                <div class="cnt decrease">-</div>
-              </div>
-              <div class="prodTotal cartSection">
-                <p>
-                  <%= item.price %>
-                </p>
-              </div>
-              <div class="cartSection removeWrap">
-                <a href="#" class="remove">x</a>
-              </div>
-            </div>
-          </li>
-
-          <% } %>
-
-            <li class="items even">
-
+        <% if (orderItems.length > 0) { %>
+          <% for (item of orderItems) { %>
+            <li class="items odd">
               <div class="infoWrap">
                 <div class="cartSection">
-                  <h3>Item Name 1</h3>
+                  <h3>
+                    <%= item.name %>
+                  </h3>
                 </div>
-
                 <div class="counter">
-                  <div class="cnt increase">+</div>
-                  <div class="count">2</div>
-                  <div class="cnt decrease">-</div>
+                  <form class="form-inline" action="/cart/addItem/<%= item.id %>" method="POST">
+                    <button class="cnt increase">+</button>
+                  </form>
+                  <div class="count">
+                    <%= item.quantity %>
+                  </div>
+                  <form class="form-inline" action="/cart/removeOne/<%= item.id %>" method="POST">
+                    <button class="cnt decrease">-</button>
+                  </form>
                 </div>
-
                 <div class="prodTotal cartSection">
-                  <p>$15.00</p>
+                  <p>
+                    <%= item.item_price %>$
+                  </p>
                 </div>
-                <div class="cartSection removeWrap">
-                  <a href="#" class="remove">x</a>
-                </div>
+                <form class="form-inline" action="/cart/removeAll/<%= item.id %>" method="POST">
+                  <button class="cartSection removeWrap">X</button>
+                </form>
               </div>
             </li>
-
+            <% } %>
+              <% } else { %>
+                <h1>Your cart is empty!</h1>
+                <% } %>
       </ul>
     </div>
 
     <div class="subtotal cf">
       <ul>
-
         <li class="totalRow"><span class="label">delivery</span><span class="value">free</span></li>
-
-
-        <li class="totalRow final"><span class="label">Total</span><span class="value">$20.00</span></li>
-        <li class="totalRow"><a href="#" class="btn continue">Checkout</a></li>
+        <li class="totalRow final"><span class="label">Total</span><span class="value"><%= totalPrice %></span></li>
+        <li class="totalRow"><a href="#" class="btn continue" id="checkoutBtn">Checkout</a></li>
       </ul>
     </div>
+
   </div>
+  <div class="alert alert-info hidden myMessage">
+
+    <form id="time">
+      <p>Confirm the order by entering the estimated time it will take to complete it.</p>
+      <label>Estimated Time: </label>
+      <input id="time_est" name="time_est" value="value=1" type="number" pattern="[0-9]" placeholder="minutes">
+
+      <button id="confirm_time_est_btn" type="button" class="btn btn-info">Confirm</button>
+    </form>
+    <form id="completed" class="hide_completed">
+      <p>When the order is complete please press the completed button.</p>
+      <div id="align_buttons">
+      <div>Order #<input name="orderId" value=''></div>
+      <button id="order_done_btn" type="button" class="btn btn-success">Order Completed</button>
+    </form>
+  </div>
+
 
   <!-- script -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -95,28 +92,8 @@
     src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <script>
-    // Remove Items From Cart
-    $('a.remove').click(function () {
-      event.preventDefault();
-      $(this).parent().parent().parent().hide(400);
+  <script type="text/javascript" src="/scripts/app.js"></script>
 
-    })
-    // increase and decrease
-    let num = 1;
-    $('.increase').click(function () {
-      const collection = document.getElementsByClassName('count');
-      num = num + 1;
-      collection[0].innerHTML = num;
-
-    })
-    $('.decrease').click(function () {
-      const collection = document.getElementsByClassName('count');
-      num = num - 1;
-      collection[0].innerHTML = num;
-    })
-
-  </script>
 </body>
 
 </html>

@@ -6,7 +6,7 @@ module.exports = (db) => {
 
 router.get("/", async (req, res) => {
   const templateVars = {
-    orderItems : await database.getAllMenuItems(db)
+    items: await database.getAllMenuItems(db)
   }
   console.log(templateVars)
   res.render('menu', templateVars);
