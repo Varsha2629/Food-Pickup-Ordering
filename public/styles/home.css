@@ -1,0 +1,26 @@
+.navbar {
+  background-color: red;
+}
+.cover {
+  background: url('https://images5.alphacoders.com/415/415257.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.bg-orange {
+  background-color: #FF6144!important;
+}
+.vh-80 {
+  min-height: 84vh;
+}
+.sign__container {
+  width: 60%;
+}
+@media (min-width: 1200px) {
+  .sign__container {
+      width: 350px;
+  }
+  .subtitle-mb{
+      margin-bottom: 5.5rem!important;
+  }
+}

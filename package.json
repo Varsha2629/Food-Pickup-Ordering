@@ -20,9 +20,11 @@
     "express": "^4.17.1",
     "morgan": "^1.9.1",
     "pg": "^8.5.0",
-    "sass": "^1.35.1"
+    "sass": "^1.35.1",
+    "twilio": "^3.74.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "twilio-run": "^3.4.1"
   }
 }
