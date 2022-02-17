@@ -1,7 +1,10 @@
 ## Food Ordering Pick-up
 
-We deisgned a food ording pick up app. The user can browse the menu and then add items to the cart. When they are ready to checkout they can click the checkout button and the returant will recieve the order via sms. Once the users order is ready for pick up they will get a sms notification directly to their phone. 
+A food ordering app designed for a single restaurant as part of the Lighthouse Labs midterm evaluations. This app allows clients to visit the restaurants website, order one or more items and receive a SMS notification directly to their phone number when their order is ready for pick-up.
 
+- Twillio was used as the messaging service to implement SMS communication between the client and the restaurant
+- The Back-end was developed using SQL, Node.js and Express
+- The Front-end was developed using HTML, CSS, Javascript, Bootstrap
 
 ## Final Product 
 
@@ -10,17 +13,6 @@ We deisgned a food ording pick up app. The user can browse the menu and then add
 !["screenshot description"](#)
 
 !["screenshot description"](#)
-
-
-## Project Setup
-
-The following steps are only for _one_ of the group members to perform.
-
-1. Create your own copy of this repo using the `Use This Template` button, ideally using the name of your project. The repo should be marked Public
-2. Verify that the skeleton code now shows up in your repo on GitHub, you should be automatically redirected
-3. Clone your copy of the repo to your dev machine
-4. Add your team members as collaborators to the project so that they can push to this repo
-5. Let your team members know the repo URL so that they use the same repo (they should _not_ create a copy/fork of this repo since that will add additional workflow complexity to the project)
 
 
 ## Getting Started
