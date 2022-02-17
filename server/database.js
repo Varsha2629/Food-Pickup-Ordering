@@ -37,7 +37,7 @@ const addToCart = function(orderId ,itemId, pool) {
 const getOrderItems = function(orderId, pool) {
   return pool
     .query(
-      `SELECT menu.id, count(menu.id) as quantity, menu.name, menu.photo_url, menu.price 
+      `SELECT menu.id, count(menu.id) as quantity, menu.name, menu.photo_url, sum(menu.price) as item_price
       FROM menu
       JOIN order_items ON menu.id = order_items.menu_id
       WHERE order_id = $1
@@ -65,33 +65,6 @@ const removeAllFromCart = function(itemId, orderId, pool) {
     });
 }
 
-// const removeOneFromCart = function(itemId, orderId, pool) {
-//   let toBeDeleted = 0;
-//   pool
-//     .query(`
-//       SELECT id from order_items
-//       WHERE menu_id = $1 AND order_id = $2
-//       LIMIT 1;`, [itemId, orderId])
-//     .then((result) => {
-//       toBeDeleted = result.rows[0].id
-//       console.log('to be deleted', toBeDeleted)
-//       return toBeDeleted
-//     }).catch((err) => {
-//       console.log(err.message);
-//     });
-  // return pool
-  //   .query(`
-  //     DELETE FROM order_items
-  //     where order_items.id = $1;`, [toBeDeleted])
-  //   .then((result) => {
-  //     console.log(result.rows)
-  //     return result.rows;
-  //   })
-  //   .catch((err) => {
-  //     console.log(err.message);
-  //   });
-// }
-
 const removeOneFromCart = function(itemId, orderId, pool) {
   return pool
     .query(`
@@ -109,6 +82,19 @@ const removeOneFromCart = function(itemId, orderId, pool) {
     });
 }
 
+const getTotalPrice = function(orderId, pool) {
+  return pool
+    .query(`
+      SELECT sum(menu.price) FROM order_items
+      JOIN menu on order_items.menu_id = menu.id
+      WHERE order_id = $1;`, [orderId])
+    .then((result) => {
+      // console.log(result.rows[0].sum)
+      return result.rows[0].sum;
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+}
 
-
-module.exports = { getAllMenuItems, createOrderId, addToCart, getOrderItems, removeAllFromCart, removeOneFromCart }
+module.exports = { getAllMenuItems, createOrderId, addToCart, getOrderItems, removeAllFromCart, removeOneFromCart, getTotalPrice }

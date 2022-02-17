@@ -13,7 +13,8 @@ router.get("/", async (req, res) => {
     const orderItems = {}
   } else {
     const templateVars = {
-    orderItems : await database.getOrderItems(orderId, db)
+    orderItems : await database.getOrderItems(orderId, db),
+    totalPrice : await database.getTotalPrice(orderId, db)
   }
   // console.log(await database.getOrderItems(orderId, db))
   res.render('cart', templateVars)

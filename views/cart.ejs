@@ -44,7 +44,7 @@
               </div>
               <div class="prodTotal cartSection">
                 <p>
-                  <%= item.price %>$
+                  <%= item.item_price %>$
                 </p>
               </div>
               <form class="form-inline" action="/cart/removeAll/<%= item.id %>" method="POST">
@@ -65,7 +65,7 @@
         <li class="totalRow"><span class="label">delivery</span><span class="value">free</span></li>
 
 
-        <li class="totalRow final"><span class="label">Total</span><span class="value">$20.00</span></li>
+        <li class="totalRow final"><span class="label">Total</span><span class="value"><%= totalPrice %></span></li>
         <li class="totalRow"><a href="#" class="btn continue">Checkout</a></li>
       </ul>
     </div>
