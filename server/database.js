@@ -97,4 +97,30 @@ const getTotalPrice = function(orderId, pool) {
     });
 }
 
-module.exports = { getAllMenuItems, createOrderId, addToCart, getOrderItems, removeAllFromCart, removeOneFromCart, getTotalPrice }
+const markOrderPlaced = function(orderId, pool) {
+  return pool
+    .query(`
+      UPDATE orders SET order_placed = TRUE WHERE order_placed = FALSE;
+    `)
+    .then((result) => {
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+}
+
+const markOrderCompleted = function(orderId, pool) {
+  return pool
+    .query(`
+      UPDATE orders SET order_ready = TRUE WHERE order_ready = FALSE;
+    `)
+    .then((result) => {
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+}
+
+module.exports = { getAllMenuItems, createOrderId, addToCart, getOrderItems, removeAllFromCart, removeOneFromCart, getTotalPrice, markOrderPlaced }

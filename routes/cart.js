@@ -14,9 +14,10 @@ router.get("/", async (req, res) => {
   } else {
     const templateVars = {
     orderItems : await database.getOrderItems(orderId, db),
-    totalPrice : await database.getTotalPrice(orderId, db)
+    totalPrice : await database.getTotalPrice(orderId, db),
+    oderId: orderId
   }
-  // console.log(await database.getOrderItems(orderId, db))
+  console.log(templateVars)
   res.render('cart', templateVars)
   }
 })
@@ -49,6 +50,13 @@ router.post("/removeOne/:itemId", async (req, res) => {
   const { itemId } = req.params
   await database.removeOneFromCart(itemId, orderId, db)
   res.redirect('/cart')
+})
+
+router.post("/checkout/:orderId", async (req, res) => {
+  const { orderId } = req.params
+  req.session = null
+  await database.markOrderPlaced(orderId, db)
+  res.redirect('/')
 })
 
 return router;

@@ -66,7 +66,9 @@
 
 
         <li class="totalRow final"><span class="label">Total</span><span class="value"><%= totalPrice %></span></li>
-        <li class="totalRow"><a href="#" class="btn continue">Checkout</a></li>
+        <form class="form-inline" action="/cart/checkout/<%= oderId %>" method="POST">
+          <li><button class="checkoutBtn">Checkout</button></li>
+        </form>
       </ul>
     </div>
   </div>
@@ -79,25 +81,6 @@
 
   <script type="text/javascript" src="/scripts/app.js"></script>
 
-  <script>
-    // Remove Items From Cart
-    // $('a.remove').click(function () {
-    //   event.preventDefault();
-    //   $(this).parent().parent().parent().hide(400);
-    // })
-    // increase and decrease
-    // let num = 1;
-    // $('.increase').click(function () {
-    //   const collection = document.getElementsByClassName('count');
-    //   num = num + 1;
-    //   collection[0].innerHTML = num;
-    // })
-    // $('.decrease').click(function () {
-    //   const collection = document.getElementsByClassName('count');
-    //   num = num - 1;
-    //   collection[0].innerHTML = num;
-    // })
-  </script>
 </body>
 
 </html>
