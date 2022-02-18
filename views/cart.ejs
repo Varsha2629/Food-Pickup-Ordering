@@ -13,11 +13,15 @@
   </header>
 
 
+  <div class="myMessage">
+    <p>Your Order is Confirmed</p>
+  </div>
+
   <div class="wrap cf">
 
     <div class="heading cf">
       <h1>My Order</h1>
-      <a href="#" class="continue">Continue Order</a>
+      <a href="/menu" class="continue">Continue Order</a>
     </div>
     <div class="cart">
 
@@ -56,34 +60,20 @@
               <% } else { %>
                 <h1>Your cart is empty!</h1>
                 <% } %>
-      </ul>
-    </div>
+          </ul>
 
-    <div class="subtotal cf">
-      <ul>
-        <li class="totalRow"><span class="label">delivery</span><span class="value">free</span></li>
-        <li class="totalRow final"><span class="label">Total</span><span class="value"><%= totalPrice %></span></li>
-        <li class="totalRow"><a href="#" class="btn continue" id="checkoutBtn">Checkout</a></li>
-      </ul>
-    </div>
+          <div class="subtotal cf">
+            <ul>
+              <li class="totalRow"><span class="label">delivery</span><span class="value">free</span></li>
+              <li class="totalRow final"><span class="label">Total</span><span class="value"><%= totalPrice %></span></li>
+              <li class="totalRow"><button class="btn continue" id="checkoutBtn">Checkout</button></li>
+            </ul>
+          </div>
+       </div>
 
-  </div>
-  <div class="alert alert-info hidden myMessage">
+   </div>
 
-    <form id="time">
-      <p>Confirm the order by entering the estimated time it will take to complete it.</p>
-      <label>Estimated Time: </label>
-      <input id="time_est" name="time_est" value="value=1" type="number" pattern="[0-9]" placeholder="minutes">
 
-      <button id="confirm_time_est_btn" type="button" class="btn btn-info">Confirm</button>
-    </form>
-    <form id="completed" class="hide_completed">
-      <p>When the order is complete please press the completed button.</p>
-      <div id="align_buttons">
-      <div>Order #<input name="orderId" value=''></div>
-      <button id="order_done_btn" type="button" class="btn btn-success">Order Completed</button>
-    </form>
-  </div>
 
 
   <!-- script -->

@@ -71,9 +71,9 @@ img {
   margin-bottom: 5em;
   box-shadow: 0 16px 28px 0 rgb(134 131 134 / 65%), 0 25px 55px 0 rgb(146 140 142 / 32%);
 }
-}
 
-.projTitle {  
+
+.projTitle {
   border-bottom: 1px solid #dadada;
 }
 
@@ -144,7 +144,7 @@ img {
 .cart .items {
   display: block;
   width: 100%;
-  vertical-align: middle;
+
   padding: 1.5em;
   border-bottom: 1px solid #fafafa;
 }
@@ -161,7 +161,7 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
+
 }
 
 .cnt{
@@ -335,11 +335,14 @@ a.remove:hover {
   letter-spacing: -0.025em;
   width: 35%;
 }
-
-// QnY
- 
- 
-
+.myMessage {
+  text-align: center;
+  font-size: larger;
+  font-weight: bold;
+}
+.myMessage p {
+  color: green;
+}
 @media only screen and (max-width: 39.375em) {
   .wrap {
     width: 98%;

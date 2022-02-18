@@ -110,6 +110,8 @@ const getTotalPrice = function (orderId, pool) {
     });
 };
 
+
+
 //for sms system
 const is_accepted = (id, bool, time) => {
   const sql =
@@ -165,6 +167,21 @@ const deleteFromOrderItemsIfOrderIsPlaced = (pool, orderId) => {
     .catch((err) => {
       console.log(err.message);
     });
+
 };
+
+const getOrderById = function (orderId, pool) {
+  return pool
+    .query(`SELECT * FROM orders WHERE id = $1`, [orderId])
+    .then((result) => {
+      return result.rows[0];
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+
 module.exports = { getAllMenuItems, createOrderId, addToCart, getOrderItems, removeAllFromCart, removeOneFromCart,
-  getTotalPrice, is_accepted, is_completed, placeOrder, deleteFromOrderItemsIfOrderIsPlaced, completedOrder};
+  getTotalPrice, is_accepted, is_completed, placeOrder, deleteFromOrderItemsIfOrderIsPlaced, completedOrder, getOrderById};
+
+  // markOrderPlaced, markOrderCompleted

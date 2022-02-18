@@ -7,6 +7,7 @@ const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
+const bodyParser = require("body-parser");
 const cookieSession = require('cookie-session')
 
 // PG database client/connection setup
@@ -21,6 +22,9 @@ db.connect();
 app.use(morgan("dev"));
 
 app.set("view engine", "ejs");
+
+app.use(bodyParser.urlencoded({ extended: false }))  // parse application/json
+app.use(bodyParser.json())
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieSession({
   name: 'session',
@@ -49,6 +53,9 @@ app.use(express.static("public"));
   app.use("/", login(db));
   app.use("/menu", homeRoutes(db));
   app.use("/cart", cart(db));
+
+
+
 
   // Note: mount other resources here, using the same pattern above
 app.listen(PORT, () => {
