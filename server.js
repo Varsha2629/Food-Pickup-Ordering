@@ -55,8 +55,16 @@ app.use(express.static("public"));
   app.use("/cart", cart(db));
 
 
+// OrderPlaced
+app.get("/orderPlaced", async (req, res) => {
 
+  res.render('orderPlaced');
+})
 
+app.get("/orderPlaced/:id", async (req, res) => {
+
+  res.render('orderPlaced');
+})
   // Note: mount other resources here, using the same pattern above
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
