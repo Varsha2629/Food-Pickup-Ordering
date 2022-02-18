@@ -54,7 +54,20 @@ app.use(express.static("public"));
   app.use("/menu", homeRoutes(db));
   app.use("/cart", cart(db));
 
+// OrderPlaced
+app.get("/orderPlaced", async (req, res) => {
 
+    res.render('orderPlaced');
+  })
+
+  app.get("/orderPlaced/:id", async (req, res) => {
+
+  app.get("/", (req, res) => {
+    res.render("index");
+  });
+
+    res.render('orderPlaced');
+  })
 
 
   // Note: mount other resources here, using the same pattern above
