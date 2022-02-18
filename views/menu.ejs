@@ -14,7 +14,14 @@
 
 <body>
   <h1 class='menu'>Select your order from our delicious menu!</h1>
+
+  <div class="container">
+
+
   <% for (let item of items) {  %>
+
+    <div class="col">
+      <div class="card" style="width: 20rem;">
     <div class="menu-item">
       <p><%= item.name%></p>
       <p>Price: <%= item.price%>$</p>
@@ -23,5 +30,9 @@
         <button type="submit" class="btn addToCart" style="background-color: blue; color: white">Add to cart!</button>
       </form>
     </div>
+  </div>
+</div>
   <% } %>
+
+</div>
 </body>
