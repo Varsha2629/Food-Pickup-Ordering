@@ -19,7 +19,6 @@ A food ordering app designed for a single restaurant as part of the Lighthouse L
 !["screenshot description"](https://github.com/Varsha2629/Food-Pickup-Ordering/blob/master/public/docs/WhatsApp%20Image%202022-02-18%20at%2010.25.27%20AM.jpeg)
 
 
-
 ## Getting Started
 
 1. Create the .env by using .env.example as a reference: cp .env.example .env
@@ -49,3 +48,11 @@ A food ordering app designed for a single restaurant as part of the Lighthouse L
 - Node 10.x or above
 - NPM 5.x or above
 - PG 6.x
+- bcrypt: ^5.0.1
+- chalk: ^2.4.2
+- cookie-session: ^2.0.0
+- dotenv: ^2.0.0
+- ejs: ^2.6.2
+- express: ^4.17.1
+- morgan: ^1.9.1
+- pg: ^8.5.0   
