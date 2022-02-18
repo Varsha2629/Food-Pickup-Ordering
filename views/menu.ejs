@@ -18,19 +18,16 @@
   <div class="container">
     <div class="row">
 
-
-
   <% for (let item of items) {  %>
 
-
     <div class="menu-item">
-
       <div class="col">
-        <div class="card" style="width: 20rem;">
-      <p><%= item.name%></p>
-      <p>Price: <%= item.price%>$</p>
+      <div class="card" style="width: 20rem;">
+
       <img class = 'menu-picture' src="<%= item.photo_url%>">
-      <form class="form-inline" action="/cart/addItem/<%= item.id %>" method="POST">
+      <h4><p><%= item.name%></p></h4>
+      <h6><p>Price: <%= item.price%>$</p></h6>
+      <h4><form class="form-inline" action="/cart/addItem/<%= item.id %>" method="POST"></h4>
         <button type="submit" class="btn addToCart" style="background-color: blue; color: white">Add to cart!</button>
       </form>
     </div>
