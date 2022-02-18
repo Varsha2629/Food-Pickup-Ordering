@@ -1,5 +1,5 @@
 h1.menu {
-  padding: 1em;
+  color: red;
 }
 
 .menu-item {
@@ -14,4 +14,11 @@ h1.menu {
 
 .addToCart {
   margin: 20px;
+}
+
+.cover {
+  background: url("https://images5.alphacoders.com/415/415257.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
 }

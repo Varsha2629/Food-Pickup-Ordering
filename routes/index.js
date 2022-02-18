@@ -1,3 +1,4 @@
+const database = require('../server/database.js')
 const express = require('express');
 const router = express.Router();
 

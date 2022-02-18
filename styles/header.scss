@@ -1,4 +1,45 @@
+<<<<<<< HEAD
 $main-color: #6394F8;
+=======
+.navbar {
+  background-color: red;
+}
+
+.cover {
+  background: url('https://images5.alphacoders.com/415/415257.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+
+}
+
+.bg-orange {
+  background-color: #ff6144!important;
+}
+
+.vh-80 {
+  min-height: 84vh;
+}
+
+.sign__container {
+  width: 60%;
+}
+
+@media (min-width: 1200px) {
+  .sign__container {
+      width: 350px;
+  }
+  .subtitle-mb{
+      margin-bottom: 5.5rem!important;
+  }
+}
+
+
+
+
+
+/*$main-color: #6394F8;
+>>>>>>> 5f557ded60fb4305d59be563a57fc4db6a6d3556
 $light-text: #ABB0BE;
 
 @import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
@@ -157,3 +198,7 @@ nav {
   display: table;
   clear: both;
 }
+<<<<<<< HEAD
+=======
+*/
+>>>>>>> 5f557ded60fb4305d59be563a57fc4db6a6d3556
